@@ -10,6 +10,7 @@ export type Item = {
   description: string;
   price: number;
   image: string;
+  quantity: number;
 };
 
 const api = {

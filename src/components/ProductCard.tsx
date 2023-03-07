@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Item } from "~/api";
 import { formatPrice } from "~/utils/price";
+import { useCartStore } from "~/zustand/store";
 import ProductButton from "./ProductButton";
 
 type Props = {
@@ -8,6 +9,8 @@ type Props = {
 };
 
 export default function ProductCard({ product }: Props) {
+  const addItem = useCartStore((state) => state.addItem);
+
   return (
     <article className="grid w-80 gap-2 ">
       <div className="flex justify-center">
@@ -23,7 +26,11 @@ export default function ProductCard({ product }: Props) {
       <p className="text-right font-lobster text-2xl font-semibold">
         {formatPrice(product.price)}
       </p>
-      <ProductButton />
+      <ProductButton
+        addItem={() => addItem(product)}
+        name={product.name}
+        quantity={product.quantity}
+      />
     </article>
   );
 }

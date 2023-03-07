@@ -4,11 +4,13 @@ import { notFound } from "next/navigation";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import api, { Customer, Item } from "~/api";
+import NavBar from "~/components/NavBar";
 import ProductCard from "~/components/ProductCard";
+import { useCartStore } from "~/zustand/store";
 
 const Slug: NextPage = () => {
   const router = useRouter();
-  const { slug } = router.query;
+  const slug = router.query.slug as string;
 
   const [items, setItems] = useState<Item[]>();
   const [customer, setCustomer] = useState<Customer>();
@@ -36,8 +38,10 @@ const Slug: NextPage = () => {
         <meta name="description" content="Shefris Napoletano" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="p-2">
-        <h1>{slug}</h1>
+
+      <NavBar slug={slug} />
+
+      <main className="pt-20 pb-10">
         <section className="grid grid-cols-auto-fit justify-items-center gap-10 ">
           {items?.map((item, i) => (
             <ProductCard key={i} product={item} />

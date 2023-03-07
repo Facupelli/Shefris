@@ -13,7 +13,6 @@ const Home: NextPage = () => {
     api.customers.fetch().then((customers) => setCustomers(customers));
   }, []);
 
-  console.log(customers);
   return (
     <>
       <Head>
