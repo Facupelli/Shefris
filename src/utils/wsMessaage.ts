@@ -1,7 +1,16 @@
 import { OrderMessage } from "~/api";
 import { formatPrice } from "./price";
 
-export const generateWsMessage = (data: OrderMessage) => {
+type Message = {
+  name: string;
+  phone: string;
+  shipment: string;
+  location?: string;
+  items: string;
+  total: number;
+};
+
+export const generateWsMessage = (data: Message) => {
   const url = "https://api.whatsapp.com/send?text=";
   const message = `Hola! te paso el resumen de mi pedido:
 
@@ -11,7 +20,7 @@ export const generateWsMessage = (data: OrderMessage) => {
 *Departamento:* ${data.location}
 
 *Pedido:* 
-${data.cart}
+${data.items}
 
 *Total:* ${formatPrice(data.total)}
 

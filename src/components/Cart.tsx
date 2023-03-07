@@ -29,22 +29,9 @@ export default function Cart() {
   const shipment: string = watch("shipment");
 
   const onSubmit = handleSubmit(async (data) => {
-    const cart = items
-      .map(
-        (item) =>
-          "x " +
-          item.quantity +
-          " " +
-          item.name +
-          "\n" +
-          "subtotal = " +
-          formatPrice(item.quantity * item.price)
-      )
-      .join("\n");
-
     const messageOrder = {
       ...data,
-      cart,
+      items,
       total,
     };
 

@@ -7,7 +7,7 @@ export type OrderMessage = {
   phone: string;
   shipment: string;
   location?: string;
-  cart: string;
+  items: Item[];
   total: number;
 };
 
@@ -72,7 +72,20 @@ const api = {
   },
   whatsapp: {
     sendOrderMessage: async (data: OrderMessage) => {
-      return generateWsMessage(data);
+      const items = data.items
+        .map(
+          (item) =>
+            "x " +
+            item.quantity +
+            " " +
+            item.name +
+            "\n" +
+            "subtotal = " +
+            formatPrice(item.quantity * item.price)
+        )
+        .join("\n");
+
+      return generateWsMessage({ ...data, items });
     },
   },
 };
