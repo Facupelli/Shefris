@@ -3,8 +3,8 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import api, { Customer, Item } from "~/api";
-import Cart from "~/components/CartItem";
-import CartList from "~/components/CartList";
+import Cart from "~/components/Cart";
+
 import NavBar from "~/components/NavBar";
 import ProductCard from "~/components/ProductCard";
 
@@ -44,7 +44,7 @@ const Slug: NextPage = () => {
 
       <NavBar slug={slug} />
 
-      <CartList />
+      <Cart />
 
       <main className="bg-white pt-20 pb-10">
         <section className="grid grid-cols-auto-fit justify-items-center gap-10 ">

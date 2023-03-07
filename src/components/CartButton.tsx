@@ -10,22 +10,22 @@ export default function CartButton({ item }: Props) {
   const decreaseQuantity = useCartStore((state) => state.decreaseQuantity);
 
   return (
-    <div className="mt-4 grid w-1/2 grid-cols-3">
+    <div className="mt-4 flex h-12 grid-cols-3">
       <button
         onClick={() => decreaseQuantity(item.name)}
-        className="col-span-1 border-r border-l border-neutral-300 bg-neutral-200 p-2 text-center"
+        className=" w-12 border-r border-l border-neutral-300 bg-neutral-200 p-2 text-center"
       >
         -
       </button>
       <button
         onClick={() => increaseQuantity(item)}
-        className="col-span-1 bg-neutral-200 p-2 text-center"
+        className=" w-12 bg-neutral-200 p-2 text-center"
       >
         +
       </button>
-      <p className="col-span-1 bg-neutral-300 p-2 text-center font-dosis font-semibold">
+      <button className="w-12 cursor-auto bg-neutral-300 p-2 text-center font-dosis font-semibold">
         {item.quantity}
-      </p>
+      </button>
     </div>
   );
 }
