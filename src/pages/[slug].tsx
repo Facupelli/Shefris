@@ -1,12 +1,12 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import { notFound } from "next/navigation";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import api, { Customer, Item } from "~/api";
+import Cart from "~/components/CartItem";
+import CartList from "~/components/CartList";
 import NavBar from "~/components/NavBar";
 import ProductCard from "~/components/ProductCard";
-import { useCartStore } from "~/zustand/store";
 
 const Slug: NextPage = () => {
   const router = useRouter();
@@ -43,6 +43,8 @@ const Slug: NextPage = () => {
       </Head>
 
       <NavBar slug={slug} />
+
+      <CartList />
 
       <main className="bg-white pt-20 pb-10">
         <section className="grid grid-cols-auto-fit justify-items-center gap-10 ">

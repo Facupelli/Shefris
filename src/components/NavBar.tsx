@@ -7,11 +7,12 @@ type Props = {
 export default function NavBar({ slug }: Props) {
   const cart = useCartStore((state) => state.items);
   const emptyCart = useCartStore((state) => state.emptyCart);
+  const toggleCart = useCartStore((state) => state.toggleCart);
 
   return (
-    <nav className="fixed h-16 w-full bg-neutral-900 p-4 text-white">
+    <nav className="fixed z-20 h-16 w-full bg-neutral-900 p-4 text-white">
       <ul className="flex items-center justify-between">
-        <li className="relative font-dosis font-bold">
+        <li className="relative font-dosis font-bold" onClick={toggleCart}>
           carrito
           {cart.length > 0 && (
             <div className="absolute bottom-2 left-10">
