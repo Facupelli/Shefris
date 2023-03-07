@@ -10,6 +10,16 @@
 const config = {
   reactStrictMode: true,
   experimental: { appDir: true },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "buddhapizza.com",
+        port: "",
+        pathname: "/storage/products/**",
+      },
+    ],
+  },
 
   /**
    * If you have the "experimental: { appDir: true }" setting enabled, then you

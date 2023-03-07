@@ -9,13 +9,18 @@ type Props = {
 
 export default function ProductCard({ product }: Props) {
   return (
-    <article className="grid w-64 ">
-      <div className="h-64 w-64 bg-gray-500">
-        <Image src={product.image} fill alt={product.name} />
+    <article className="grid w-80 gap-2 ">
+      <div className="flex justify-center">
+        <Image
+          src={product.image}
+          width={256}
+          height={256}
+          alt={product.name}
+        />
       </div>
-      <p className="font-playfair text-2xl font-bold">{product.name}</p>
+      <p className="font-playfair text-2xl font-black">{product.name}</p>
       <p className="font-lobster text-gray-500">{product.description}</p>
-      <p className="text-right font-lobster font-semibold">
+      <p className="text-right font-lobster text-2xl font-semibold">
         {formatPrice(product.price)}
       </p>
       <ProductButton />

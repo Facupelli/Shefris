@@ -38,7 +38,7 @@ const Slug: NextPage = () => {
       </Head>
       <main className="p-2">
         <h1>{slug}</h1>
-        <section className="grid grid-cols-auto-fit justify-items-center gap-6 ">
+        <section className="grid grid-cols-auto-fit justify-items-center gap-10 ">
           {items?.map((item, i) => (
             <ProductCard key={i} product={item} />
           ))}
