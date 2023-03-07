@@ -14,8 +14,9 @@ const server = z.object({
  */
 const client = z.object({
   // NEXT_PUBLIC_CLIENTVAR: z.string().min(1),
-  NEXT_PUBLIC_WS_NUMBER_ID: z.string(),
-  NEXT_PUBLIC_WS_ACCESS_TOKEN: z.string(),
+  NEXT_PUBLIC_PHONE: z.string(),
+  NEXT_PUBLIC_DOC_URL: z.string(),
+  NEXT_PUBLIC_DOC_DELIVERY_URL: z.string(),
 });
 /**
  * You can't destruct `process.env` as a regular object in the Next.js edge runtimes (e.g.
@@ -25,8 +26,9 @@ const client = z.object({
  */
 const processEnv = {
   NODE_ENV: process.env.NODE_ENV,
-  NEXT_PUBLIC_WS_NUMBER_ID: process.env.NEXT_PUBLIC_WS_NUMBER_ID,
-  NEXT_PUBLIC_WS_ACCESS_TOKEN: process.env.NEXT_PUBLIC_WS_ACCESS_TOKEN,
+  NEXT_PUBLIC_PHONE: process.env.NEXT_PUBLIC_PHONE,
+  NEXT_PUBLIC_DOC_URL: process.env.NEXT_PUBLIC_DOC_URL,
+  NEXT_PUBLIC_DOC_DELIVERY_URL: process.env.NEXT_PUBLIC_DOC_DELIVERY_URL,
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 };
 

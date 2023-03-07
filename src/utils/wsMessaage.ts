@@ -26,7 +26,7 @@ ${data.items}
 
 Espero tu respuesta para confirmar mi pedido`;
 
-  const phoneNumber = "&phone=542647433662";
+  const phoneNumber = `&phone=${process.env.NEXT_PUBLIC_PHONE}`;
 
   return encodeURI(url + message + phoneNumber);
 };

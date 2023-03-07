@@ -8,13 +8,16 @@ type Props = {
 export default function CartList({ items }: Props) {
   return (
     <section className="border-t border-b border-dashed border-neutral-900 py-6">
-      <ul className="grid justify-items-center gap-8 ">
+      <div className="grid justify-items-center gap-8 ">
         {items.map((item, i) => (
-          <li key={i} className="w-full gap-4 ">
-            <CartItem item={item} />
-          </li>
+          <CartItem key={i} item={item} />
         ))}
-      </ul>
+        {items.length === 0 && (
+          <div className="justify-self-start font-dosis">
+            No has agredado nada al carrito!
+          </div>
+        )}
+      </div>
     </section>
   );
 }
