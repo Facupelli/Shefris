@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Item } from "~/api";
 import { formatPrice } from "~/utils/price";
+import ProductButton from "./ProductButton";
 
 type Props = {
   product: Item;
@@ -17,6 +18,7 @@ export default function ProductCard({ product }: Props) {
       <p className="text-right font-lobster font-semibold">
         {formatPrice(product.price)}
       </p>
+      <ProductButton />
     </article>
   );
 }
