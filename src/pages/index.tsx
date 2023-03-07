@@ -1,18 +1,19 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import api, { Item } from "../api";
+import Link from "next/link";
 import { useEffect, useState } from "react";
+import api, { Customer } from "~/api";
 
 const Home: NextPage = () => {
-  const [items, setItems] = useState<Item[]>();
+  const [customers, setCustomers] = useState<Customer[]>();
+
+  let customer: Customer | undefined;
 
   useEffect(() => {
-    api.items
-      .fetch()
-      .then((res) => setItems(res))
-      .catch((err) => console.log(err));
+    api.customers.fetch().then((customers) => setCustomers(customers));
   }, []);
 
+  console.log(customers);
   return (
     <>
       <Head>
@@ -21,10 +22,12 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="">
-        <h1>SHEFRIS</h1>
+        <h1>Whats Cookin</h1>
         <ul>
-          {items?.map((item, i) => (
-            <li key={i}>{item.name}</li>
+          {customers?.map((customer, i) => (
+            <li key={i}>
+              <Link href={`/${customer.slug}`}>{customer.slug}</Link>
+            </li>
           ))}
         </ul>
       </main>
