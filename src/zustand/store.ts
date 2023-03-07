@@ -5,7 +5,7 @@ import { Item } from "~/api";
 interface CartState {
   items: Item[];
   addItem: (item: Item) => void;
-  increaseQuantity: (name: string) => void;
+  increaseQuantity: (item: Item) => void;
   decreaseQuantity: (name: string) => void;
   removeItem: (name: string) => void;
   emptyCart: () => void;
@@ -20,11 +20,14 @@ export const useCartStore = create<CartState>()(
         items: [],
         addItem: (item) =>
           set((state) => ({
-            items: [...state.items, { ...item, quantity: 1 }],
+            items: [...state.items, item],
           })),
-        increaseQuantity: (name) =>
+        increaseQuantity: (item) =>
           set((state) => {
-            const index = state.items.findIndex((i) => i.name === name);
+            const index = state.items.findIndex((i) => i.name === item.name);
+            if (index === -1) {
+              return { items: [...state.items, item] };
+            }
             if (index !== -1 && state.items[index]?.quantity !== undefined) {
               state.items[index]!.quantity! += 1;
               return { items: [...state.items] };

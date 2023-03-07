@@ -26,11 +26,7 @@ export default function ProductCard({ product }: Props) {
       <p className="text-right font-lobster text-2xl font-semibold">
         {formatPrice(product.price)}
       </p>
-      <ProductButton
-        addItem={() => addItem(product)}
-        name={product.name}
-        quantity={product.quantity}
-      />
+      <ProductButton addItem={() => addItem(product)} product={product} />
     </article>
   );
 }

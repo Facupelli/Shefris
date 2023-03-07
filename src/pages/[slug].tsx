@@ -26,7 +26,10 @@ const Slug: NextPage = () => {
     if (customer) {
       api.items
         .fetch(customer.url)
-        .then((res) => setItems(res))
+        .then((items) => {
+          const newItems = items.map((item) => ({ ...item, quantity: 1 }));
+          setItems(newItems);
+        })
         .catch((err) => console.log(err));
     }
   }, [customer]);
