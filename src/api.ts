@@ -1,4 +1,15 @@
 import Papa from "papaparse";
+import { formatPrice } from "./utils/price";
+import { generateWsMessage } from "./utils/wsMessaage";
+
+export type OrderMessage = {
+  name: string;
+  phone: string;
+  shipment: string;
+  location?: string;
+  cart: string;
+  total: number;
+};
 
 export type Customer = {
   slug: string;
@@ -57,6 +68,11 @@ const api = {
       });
 
       return parsed;
+    },
+  },
+  whatsapp: {
+    sendOrderMessage: async (data: OrderMessage) => {
+      return generateWsMessage(data);
     },
   },
 };

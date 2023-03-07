@@ -9,7 +9,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@next/font": "^13.2.3",
     "@types/papaparse": "^5.3.7",
     "next": "^13.2.1",
     "papaparse": "^5.4.0",
