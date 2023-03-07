@@ -1,8 +1,8 @@
-import { NextPage } from "next";
+import type { NextPage } from "next";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import api, { Customer, Item } from "~/api";
+import api from "~/api";
+import type { Item } from "~/api";
 import Cart from "~/components/Cart";
 
 import NavBar from "~/components/NavBar";

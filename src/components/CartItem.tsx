@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Item } from "~/api";
+import type { Item } from "~/api";
 import { formatPrice } from "~/utils/price";
 import { useCartStore } from "~/zustand/store";
 import CartButton from "./CartButton";

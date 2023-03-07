@@ -1,17 +1,37 @@
-import { UseFormRegister, UseFormWatch } from "react-hook-form";
-import { FormData } from "./Cart";
+import { useForm } from "react-hook-form";
+import type { Item } from "~/api";
+import api from "~/api";
 
-type Props = {
-  register: UseFormRegister<FormData>;
-  watch: UseFormWatch<FormData>;
-  onSubmit: () => void;
+export type FormData = {
+  name: string;
+  phone: string;
+  shipment: string;
+  location?: string;
 };
 
-export default function CartForm({ register, watch, onSubmit }: Props) {
+type Props = {
+  items: Item[];
+  total: number;
+};
+
+export default function CartForm({ items, total }: Props) {
+  const { register, handleSubmit, watch } = useForm<FormData>();
+
   const shipment: string = watch("shipment");
 
+  const onSubmit = (data: FormData) => {
+    const messageOrder = {
+      ...data,
+      items,
+      total,
+    };
+
+    const link = api.whatsapp.sendOrderMessage(messageOrder);
+    window.location.href = link;
+  };
+
   return (
-    <form className="grid gap-4 font-dosis" onSubmit={onSubmit}>
+    <form className="grid gap-4 font-dosis" onSubmit={handleSubmit(onSubmit)}>
       <input
         type="text"
         placeholder="Tu Nombre"

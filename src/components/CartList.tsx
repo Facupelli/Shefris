@@ -1,4 +1,4 @@
-import { Item } from "~/api";
+import type { Item } from "~/api";
 import CartItem from "./CartItem";
 
 type Props = {

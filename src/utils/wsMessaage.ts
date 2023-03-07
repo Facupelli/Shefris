@@ -1,4 +1,3 @@
-import { OrderMessage } from "~/api";
 import { formatPrice } from "./price";
 
 type Message = {
@@ -17,7 +16,7 @@ export const generateWsMessage = (data: Message) => {
 *Nombre:* ${data.name}
 *Teléfono:* ${data.phone}
 *Entrega:* ${data.shipment}
-*Departamento:* ${data.location}
+*Departamento:* ${data.location ?? "-"}
 
 *Pedido:* 
 ${data.items}
@@ -26,7 +25,7 @@ ${data.items}
 
 Espero tu respuesta para confirmar mi pedido`;
 
-  const phoneNumber = `&phone=${process.env.NEXT_PUBLIC_PHONE}`;
+  const phoneNumber = `&phone=${process.env.NEXT_PUBLIC_PHONE!}`;
 
   return encodeURI(url + message + phoneNumber);
 };

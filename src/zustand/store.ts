@@ -1,6 +1,6 @@
 import { create } from "zustand";
-import { devtools, persist } from "zustand/middleware";
-import { Item } from "~/api";
+import { devtools } from "zustand/middleware";
+import type { Item } from "~/api";
 
 interface CartState {
   items: Item[];
@@ -28,7 +28,7 @@ export const useCartStore = create<CartState>()(
             return { items: [...state.items, item] };
           }
           if (index !== -1 && state.items[index]?.quantity !== undefined) {
-            state.items[index]!.quantity! += 1;
+            state.items[index]!.quantity += 1;
             return { items: [...state.items] };
           }
           return { items: [...state.items] };

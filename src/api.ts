@@ -71,17 +71,17 @@ const api = {
     },
   },
   whatsapp: {
-    sendOrderMessage: async (data: OrderMessage) => {
+    sendOrderMessage: (data: OrderMessage) => {
       const items = data.items
         .map(
           (item) =>
             "x " +
-            item.quantity +
+            String(item.quantity) +
             " " +
             item.name +
             "\n" +
             "subtotal = " +
-            formatPrice(item.quantity * item.price)
+            String(formatPrice(item.quantity * item.price))
         )
         .join("\n");
 

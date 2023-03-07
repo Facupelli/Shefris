@@ -1,42 +1,15 @@
-import { useForm } from "react-hook-form";
-import api from "~/api";
 import { formatPrice } from "~/utils/price";
 import { useCartStore } from "~/zustand/store";
 import CartForm from "./CartForm";
 import CartList from "./CartList";
 
-export type FormData = {
-  name: string;
-  phone: string;
-  shipment: string;
-  location?: string;
-};
-
 export default function Cart() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    watch,
-  } = useForm<FormData>();
-
   const showCart = useCartStore((state) => state.showCart);
   const items = useCartStore((state) => state.items);
 
   const total = items.reduce((acc, curr) => {
     return acc + curr.price * curr.quantity;
   }, 0);
-
-  const onSubmit = handleSubmit(async (data) => {
-    const messageOrder = {
-      ...data,
-      items,
-      total,
-    };
-
-    const link = await api.whatsapp.sendOrderMessage(messageOrder);
-    window.location.href = link;
-  });
 
   return (
     <aside
@@ -54,7 +27,7 @@ export default function Cart() {
       </section>
 
       <section className="pb-6">
-        <CartForm register={register} watch={watch} onSubmit={onSubmit} />
+        <CartForm total={total} items={items} />
       </section>
     </aside>
   );
