@@ -44,7 +44,7 @@ const Slug: NextPage = () => {
 
       <NavBar slug={slug} />
 
-      <main className="pt-20 pb-10">
+      <main className="bg-white pt-20 pb-10">
         <section className="grid grid-cols-auto-fit justify-items-center gap-10 ">
           {items?.map((item, i) => (
             <ProductCard key={i} product={item} />

@@ -6,6 +6,7 @@ const config = {
       fontFamily: {
         playfair: ["Playfair Display SC", "serif"],
         lobster: ["Lobster Two", "cursive"],
+        dosis: ["Dosis", "sans-serif"],
       },
       maxWidth: {
         productImg: "250px",

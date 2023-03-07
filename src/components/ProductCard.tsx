@@ -21,8 +21,10 @@ export default function ProductCard({ product }: Props) {
           alt={product.name}
         />
       </div>
-      <p className="font-playfair text-2xl font-black">{product.name}</p>
-      <p className="font-lobster text-gray-500">{product.description}</p>
+      <p className="font-dosis text-3xl font-black">{product.name}</p>
+      <p className="font-lobster text-lg text-gray-500">
+        {product.description}
+      </p>
       <p className="text-right font-lobster text-2xl font-semibold">
         {formatPrice(product.price)}
       </p>

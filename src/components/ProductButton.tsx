@@ -16,14 +16,16 @@ export default function ProductButton({ addItem, product }: Props) {
   return (
     <div className="gap mt-2 flex h-16 items-stretch bg-neutral-900 font-semibold text-white">
       <button
-        className={`grow ${!!isItemAdded ? "bg-rose-600" : ""}`}
+        className={`grow font-dosis tracking-wider ${
+          !!isItemAdded ? "bg-rose-600" : ""
+        }`}
         onClick={addItem}
         disabled={!!isItemAdded}
       >
         {!!isItemAdded ? "Agregado" : "Agregar"}
       </button>
       <div className="flex w-24 ">
-        <button className="basis-3/5 cursor-auto border-l border-r border-gray-400 text-center ">
+        <button className="basis-3/5 cursor-auto border-l border-r border-gray-400 text-center font-dosis ">
           {!!isItemAdded ? isItemAdded.quantity : product.quantity}
         </button>
         <div className="grid basis-2/5">
