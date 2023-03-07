@@ -11,6 +11,19 @@ export type Item = {
   price: number;
   image: string;
   quantity: number;
+  category: string;
+  varieties: string[];
+  varieties2: string[];
+};
+
+export type SheetItem = {
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+  category: string;
+  varieties: string;
+  varieties2: string;
 };
 
 const api = {
@@ -35,8 +48,8 @@ const api = {
     fetch: async (url: string) => {
       const res = await fetch(url);
       const data = await res.text();
-      const parsed = await new Promise<Item[]>((resolve, reject) => {
-        Papa.parse<Item>(data, {
+      const parsed = await new Promise<SheetItem[]>((resolve, reject) => {
+        Papa.parse<SheetItem>(data, {
           header: true,
           complete: (result) => resolve(result.data),
           error: reject,
