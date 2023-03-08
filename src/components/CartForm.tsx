@@ -62,7 +62,7 @@ export default function CartForm({ items, total }: Props) {
       />
       <div className="grid gap-1 font-medium">
         <div className="flex items-center gap-2">
-          <label htmlFor="pickup" className="basis-1/2">
+          <label htmlFor="pickup" className="basis-1/2 sm:basis-1/5">
             Retiro en sucursal
           </label>
           <input
@@ -74,7 +74,7 @@ export default function CartForm({ items, total }: Props) {
           />
         </div>
         <div className="flex items-center gap-2">
-          <label htmlFor="delivery" className="basis-1/2">
+          <label htmlFor="delivery" className="basis-1/2 sm:basis-1/5">
             Envío a domicilio
           </label>
           <input
@@ -99,7 +99,7 @@ export default function CartForm({ items, total }: Props) {
         //     } ${formatPrice(location.price)}`}</option>
         //   ))}
         // </select>
-        <p className="text-center text-sm text-neutral-900">
+        <p className="text-center text-sm text-neutral-900 sm:text-left">
           El costo de envío se calculará una vez enviada la ubicación.
         </p>
       )}
