@@ -13,13 +13,8 @@ export default function ProductCard({ product }: Props) {
 
   return (
     <article className="grid w-card sm:gap-2">
-      <div className="flex justify-center">
-        <Image
-          src={product.image}
-          width={256}
-          height={256}
-          alt={product.name}
-        />
+      <div className="relative h-mobile-img w-mobile-img justify-self-center sm:h-desktop-img sm:w-desktop-img">
+        <Image src={product.image} fill alt={product.name} />
       </div>
       <p className="font-dosis text-3xl font-black">{product.name}</p>
       <p className="font-lobster text-lg text-gray-500">

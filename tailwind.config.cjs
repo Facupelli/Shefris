@@ -16,9 +16,13 @@ const config = {
       },
       width: {
         card: "300px",
+        "mobile-img": "250px",
+        "desktop-img": "210px",
       },
       height: {
         nav: "70px",
+        "mobile-img": "250px",
+        "desktop-img": "210px",
       },
       gridTemplateColumns: {
         "auto-fit": "repeat( auto-fit, minmax(300px, 1fr) )",

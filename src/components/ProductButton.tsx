@@ -14,7 +14,7 @@ export default function ProductButton({ addItem, product }: Props) {
   const isItemAdded = cartItems.find((item) => item.name === product.name);
 
   return (
-    <div className="gap mt-2 flex h-16 items-stretch bg-neutral-900 font-semibold text-white">
+    <div className="gap mt-2 flex h-16 items-stretch bg-neutral-900 font-semibold text-white sm:h-14">
       <button
         className={`grow font-dosis tracking-wider ${
           !!isItemAdded ? "bg-rose-600" : ""
