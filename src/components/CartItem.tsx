@@ -18,17 +18,22 @@ export default function CartItem({ item }: Props) {
           <Image src={item.image} fill alt={item.name} />
         </div>
         <div className="grow">
-          <p className="font-dosis text-xl font-bold">{item.name}</p>
-          <p className="pt-4 text-left font-lobster text-lg font-normal">
-            {formatPrice(item.price)}
+          <p className="pb-2 font-dosis text-lg font-extrabold sm:text-xl">
+            {item.name}
+          </p>
+          <p className="font-regular sm:text-md font-lobster text-sm text-neutral-500">
+            Masa madre tradicional.
           </p>
         </div>
       </div>
       <div className="relative flex items-baseline gap-4 ">
-        <div className="ml-20 pl-4 sm:ml-0">
+        <div className="ml-20 flex flex-col-reverse pl-4 sm:ml-0 sm:flex-row sm:items-center ">
           <CartButton item={item} />
+          <p className="text-left font-lobster text-lg font-semibold sm:ml-4 sm:text-xl">
+            {formatPrice(item.price * item.quantity)}
+          </p>
         </div>
-        <div className="absolute bottom-32 left-[calc(100%_-_20px)] flex font-semibold sm:relative sm:bottom-0 sm:left-0 sm:h-12 sm:w-12 sm:justify-center">
+        <div className="absolute bottom-36 left-[calc(100%_-_20px)] flex font-semibold sm:relative sm:bottom-0 sm:left-0 sm:h-12 sm:w-12 sm:justify-center">
           <button onClick={() => removeItem(item.name)} type="button">
             xx
           </button>

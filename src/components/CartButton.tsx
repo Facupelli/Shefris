@@ -10,7 +10,7 @@ export default function CartButton({ item }: Props) {
   const decreaseQuantity = useCartStore((state) => state.decreaseQuantity);
 
   return (
-    <div className="mt-4 flex h-12 grid-cols-3">
+    <div className="flex h-12 grid-cols-3">
       <button
         onClick={() => decreaseQuantity(item.name)}
         className=" w-12 border-r border-l border-neutral-300 bg-neutral-200 p-2 text-center"

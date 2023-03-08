@@ -23,8 +23,8 @@ export default function Cart() {
         <CartList items={items} />
 
         <section className="grid justify-items-center py-6">
-          <p className="font-dosis text-xl font-semibold">Total:</p>
-          <p className="font-dosis text-xl font-semibold">
+          <p className="font-dosis text-2xl font-semibold">Total:</p>
+          <p className="font-dosis text-2xl font-semibold">
             {formatPrice(total)}
           </p>
         </section>
