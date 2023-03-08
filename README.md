@@ -1,28 +1,21 @@
-# Create T3 App
+# SHEFRIS WHATSAPP DELIVERY APP
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Shefris es un emprendimiento de pizzas estilo napoletano. La app muestra el listado de productos que shefris ofrece, arma tu pedido y genera el mensaje para enviar a la pizzería por whatsapp.
 
-## What's next? How do I make an app with this?
+La app se puede aplicar a cualquier rubro.
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+Es el concepto básico de empresas como clientesalwhatsapp (pedidos.shop) o pedix.app
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Tech Stack
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+**Client:** Next.js, Typescript, Zustand ,Tailwind
 
-## Learn More
+Como base de datos el dueño utiliza un excell. De esta manera obtenemos una base de datos y una interfaz gratuita, conocida y fácil de usar.
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+## Screenshots
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
-
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+<img src="./imgs/home1" alt="home1" />
+<img src="./imgs/home2" alt="home2" />
+<img src="./imgs/home3" alt="home3" />
+<img src="./imgs/cart1" alt="cart1" />
+<img src="./imgs/cart2" alt="cart2" />
