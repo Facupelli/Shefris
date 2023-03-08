@@ -11,9 +11,9 @@ export type OrderMessage = {
   total: number;
 };
 
-export type Customer = {
-  slug: string;
-  url: string;
+export type DeliveryPrice = {
+  name: string;
+  price: number;
 };
 
 export type Item = {
@@ -38,14 +38,12 @@ export type SheetItem = {
 };
 
 const api = {
-  customers: {
+  delivery: {
     fetch: async () => {
-      const res = await fetch(
-        "https://docs.google.com/spreadsheets/d/e/2PACX-1vT9tw-eyssdzbxdVBt8Dcp04V23tTxXhOLUhVPNqd_b8P8Lylzs81wubzuiIOY-_2xlT-iUgy6V4lPr/pub?gid=0&single=true&output=csv"
-      );
+      const res = await fetch(process.env.NEXT_PUBLIC_DOC_DELIVERY_URL!);
       const data = await res.text();
-      const parsed = await new Promise<Customer[]>((resolve, reject) => {
-        Papa.parse<Customer>(data, {
+      const parsed = await new Promise<DeliveryPrice[]>((resolve, reject) => {
+        Papa.parse<DeliveryPrice>(data, {
           header: true,
           complete: (result) => resolve(result.data),
           error: reject,
