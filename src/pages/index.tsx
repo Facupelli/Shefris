@@ -3,8 +3,8 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import api from "~/api";
 import type { Item } from "~/api";
-import Cart from "~/components/Cart";
 
+import Cart from "~/components/Cart";
 import NavBar from "~/components/NavBar";
 import ProductCard from "~/components/ProductCard";
 

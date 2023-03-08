@@ -16,8 +16,8 @@ export default function ProductButton({ addItem, product }: Props) {
   return (
     <div className="gap mt-2 flex h-16 items-stretch bg-neutral-900 font-semibold text-white sm:h-14">
       <button
-        className={`grow font-dosis tracking-wider ${
-          !!isItemAdded ? "bg-rose-600" : ""
+        className={`grow font-dosis tracking-wider hover:bg-neutral-800 ${
+          !!isItemAdded ? "bg-rose-600 hover:bg-rose-600" : ""
         }`}
         onClick={addItem}
         disabled={!!isItemAdded}
@@ -29,8 +29,20 @@ export default function ProductButton({ addItem, product }: Props) {
           {!!isItemAdded ? isItemAdded.quantity : product.quantity}
         </button>
         <div className="grid basis-2/5">
-          <button onClick={() => increaseQuantity(product)}> + </button>
-          <button onClick={() => decreaseQuantity(product.name)}> - </button>
+          <button
+            className="hover:bg-neutral-800"
+            onClick={() => increaseQuantity(product)}
+          >
+            {" "}
+            +{" "}
+          </button>
+          <button
+            className="hover:bg-neutral-800"
+            onClick={() => decreaseQuantity(product.name)}
+          >
+            {" "}
+            -{" "}
+          </button>
         </div>
       </div>
     </div>
