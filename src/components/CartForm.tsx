@@ -9,6 +9,7 @@ export type FormData = {
   phone: string;
   shipment: string;
   location?: string;
+  address: string;
 };
 
 type Props = {
@@ -87,17 +88,29 @@ export default function CartForm({ items, total }: Props) {
       </div>
 
       {shipment === "delivery" && deliveryLocations.length > 0 && (
-        <select
-          className="bg-neutral-300 p-2 font-medium"
-          {...register("location")}
-        >
-          {deliveryLocations.map((location, i) => (
-            <option key={i} value={`${location.name} ${location.price}`}>{`${
-              location.name
-            } ${formatPrice(location.price)}`}</option>
-          ))}
-        </select>
+        // <select
+        //   className="bg-neutral-300 p-2 font-medium"
+        //   {...register("location")}
+        // >
+        //   <option disabled>seleccionar localidad</option>
+        //   {deliveryLocations.map((location, i) => (
+        //     <option key={i} value={`${location.name} ${location.price}`}>{`${
+        //       location.name
+        //     } ${formatPrice(location.price)}`}</option>
+        //   ))}
+        // </select>
+        <p className="text-center text-sm text-neutral-900">
+          El costo de envío se calculará una vez enviada la ubicación.
+        </p>
       )}
+
+      <input
+        type="text"
+        placeholder="Dirección"
+        className="bg-neutral-300 p-2  text-neutral-700"
+        required
+        {...register("address")}
+      />
 
       <button
         type="submit"

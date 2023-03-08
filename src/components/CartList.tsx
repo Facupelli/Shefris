@@ -8,7 +8,7 @@ type Props = {
 export default function CartList({ items }: Props) {
   return (
     <section className="border-t border-b border-dashed border-neutral-900 py-6">
-      <div className="grid justify-items-center gap-8 ">
+      <div className="grid justify-items-center gap-y-8 ">
         {items.map((item, i) => (
           <CartItem key={i} item={item} />
         ))}

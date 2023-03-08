@@ -28,7 +28,7 @@ export default function CartItem({ item }: Props) {
         <div className="ml-20 pl-4 sm:ml-0">
           <CartButton item={item} />
         </div>
-        <div className="absolute bottom-32 left-32 flex w-full justify-center font-semibold sm:relative sm:bottom-0 sm:left-0 sm:h-12 sm:w-12">
+        <div className="absolute bottom-32 left-[calc(100%_-_20px)] flex font-semibold sm:relative sm:bottom-0 sm:left-0 sm:h-12 sm:w-12 sm:justify-center">
           <button onClick={() => removeItem(item.name)} type="button">
             xx
           </button>
