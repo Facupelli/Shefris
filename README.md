@@ -14,8 +14,8 @@ Como base de datos el dueño utiliza un excell. De esta manera obtenemos una bas
 
 ## Screenshots
 
-<img src="/imgs/home1" alt="home1" />
-<img src="/imgs/home2" alt="home2" />
-<img src="/imgs/home3" alt="home3" />
-<img src="/imgs/cart1" alt="cart1" />
-<img src="/imgs/cart2" alt="cart2" />
+<img src="imgs/home1" alt="home1" />
+<img src="imgs/home2" alt="home2" />
+<img src="imgs/home3" alt="home3" />
+<img src="imgs/cart1" alt="cart1" />
+<img src="imgs/cart2" alt="cart2" />
