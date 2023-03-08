@@ -10,7 +10,7 @@ export default function NavBar({ slug }: Props) {
   const toggleCart = useCartStore((state) => state.toggleCart);
 
   return (
-    <nav className="fixed z-20 h-16 w-full bg-neutral-900 p-4 text-white">
+    <nav className="fixed z-20 h-nav w-full bg-neutral-900 p-4 text-white">
       <ul className="mx-auto flex max-w-screen-lg items-center justify-between">
         <li
           className="relative cursor-pointer font-dosis font-bold"

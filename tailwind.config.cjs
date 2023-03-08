@@ -17,6 +17,9 @@ const config = {
       width: {
         card: "300px",
       },
+      height: {
+        nav: "70px",
+      },
       gridTemplateColumns: {
         "auto-fit": "repeat( auto-fit, minmax(300px, 1fr) )",
       },
