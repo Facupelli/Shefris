@@ -11,8 +11,11 @@ export default function NavBar({ slug }: Props) {
 
   return (
     <nav className="fixed z-20 h-16 w-full bg-neutral-900 p-4 text-white">
-      <ul className="flex items-center justify-between">
-        <li className="relative font-dosis font-bold" onClick={toggleCart}>
+      <ul className="mx-auto flex max-w-screen-lg items-center justify-between">
+        <li
+          className="relative cursor-pointer font-dosis font-bold"
+          onClick={toggleCart}
+        >
           carrito
           {cart.length > 0 && (
             <div className="absolute bottom-2 left-10">

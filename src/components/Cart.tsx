@@ -17,18 +17,22 @@ export default function Cart() {
         showCart ? "bottom-0" : "bottom-full"
       }`}
     >
-      <h1 className="pb-2 font-dosis text-xl font-bold">Carrito</h1>
+      <div className="mx-auto max-w-screen-lg">
+        <h1 className="pb-2 font-dosis text-xl font-bold">Carrito</h1>
 
-      <CartList items={items} />
+        <CartList items={items} />
 
-      <section className="grid justify-items-center py-6">
-        <p className="font-dosis text-xl font-semibold">Total:</p>
-        <p className="font-dosis text-xl font-semibold">{formatPrice(total)}</p>
-      </section>
+        <section className="grid justify-items-center py-6">
+          <p className="font-dosis text-xl font-semibold">Total:</p>
+          <p className="font-dosis text-xl font-semibold">
+            {formatPrice(total)}
+          </p>
+        </section>
 
-      <section className="pb-6">
-        <CartForm total={total} items={items} />
-      </section>
+        <section className="pb-20">
+          <CartForm total={total} items={items} />
+        </section>
+      </div>
     </aside>
   );
 }

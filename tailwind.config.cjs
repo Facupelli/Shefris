@@ -14,8 +14,11 @@ const config = {
       maxHeight: {
         productImg: "250px",
       },
+      width: {
+        card: "300px",
+      },
       gridTemplateColumns: {
-        "auto-fit": "repeat( auto-fit, minmax(250px, 1fr) )",
+        "auto-fit": "repeat( auto-fit, minmax(300px, 1fr) )",
       },
     },
   },

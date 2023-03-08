@@ -12,10 +12,10 @@ export default function CartItem({ item }: Props) {
   const removeItem = useCartStore((state) => state.removeItem);
 
   return (
-    <div>
-      <div className="flex gap-4">
-        <div>
-          <Image src={item.image} width={80} height={80} alt={item.name} />
+    <div className="w-full sm:flex sm:items-center sm:justify-between">
+      <div className="flex gap-4 sm:items-center sm:gap-10">
+        <div className="relative h-20 w-20 sm:h-40 sm:w-40">
+          <Image src={item.image} fill alt={item.name} />
         </div>
         <div className="grow">
           <p className="font-dosis text-xl font-bold">{item.name}</p>
@@ -23,14 +23,16 @@ export default function CartItem({ item }: Props) {
             {formatPrice(item.price)}
           </p>
         </div>
-        <div className="font-semibold">
+      </div>
+      <div className="relative flex items-baseline gap-4 ">
+        <div className="ml-20 pl-4 sm:ml-0">
+          <CartButton item={item} />
+        </div>
+        <div className="absolute bottom-32 left-32 flex w-full justify-center font-semibold sm:relative sm:bottom-0 sm:left-0 sm:h-12 sm:w-12">
           <button onClick={() => removeItem(item.name)} type="button">
             xx
           </button>
         </div>
-      </div>
-      <div className="ml-20 pl-4">
-        <CartButton item={item} />
       </div>
     </div>
   );
