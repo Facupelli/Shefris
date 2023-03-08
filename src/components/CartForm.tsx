@@ -23,8 +23,6 @@ export default function CartForm({ items, total }: Props) {
     []
   );
 
-  console.log(deliveryLocations);
-
   const shipment: string = watch("shipment");
 
   useEffect(() => {
