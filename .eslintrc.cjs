@@ -23,6 +23,7 @@ const config = {
       {
         prefer: "type-imports",
         fixStyle: "inline-type-imports",
+        "@typescript-eslint/no-non-null-assertion": "off",
       },
     ],
   },
