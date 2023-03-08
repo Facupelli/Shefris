@@ -9,6 +9,7 @@ export type OrderMessage = {
   location?: string;
   items: Item[];
   total: number;
+  address: string;
 };
 
 export type DeliveryPrice = {

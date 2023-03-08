@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import type { DeliveryPrice, Item } from "~/api";
 import api from "~/api";
-import { formatPrice } from "~/utils/price";
+// import { formatPrice } from "~/utils/price";
 
 export type FormData = {
   name: string;

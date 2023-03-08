@@ -7,6 +7,7 @@ type Message = {
   location?: string;
   items: string;
   total: number;
+  address: string;
 };
 
 export const generateWsMessage = (data: Message) => {
@@ -17,6 +18,7 @@ export const generateWsMessage = (data: Message) => {
 *Teléfono:* ${data.phone}
 *Entrega:* ${data.shipment}
 *Departamento:* ${data.location ?? "-"}
+*Dirección:* ${data.address}
 
 *Pedido:* 
 ${data.items}
