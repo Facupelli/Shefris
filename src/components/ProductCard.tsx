@@ -12,7 +12,7 @@ export default function ProductCard({ product }: Props) {
   const addItem = useCartStore((state) => state.addItem);
 
   return (
-    <article className="grid w-card gap-2 ">
+    <article className="grid w-card sm:gap-2">
       <div className="flex justify-center">
         <Image
           src={product.image}
