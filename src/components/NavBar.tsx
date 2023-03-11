@@ -18,8 +18,8 @@ export default function NavBar({ slug }: Props) {
         >
           carrito
           {cart.length > 0 && (
-            <div className="absolute bottom-2 left-10">
-              <p className="text-sm text-rose-600">{cart.length}</p>
+            <div className="absolute bottom-2 right-[-6px] ">
+              <p className="text-md text-rose-600">{cart.length}</p>
             </div>
           )}
         </li>

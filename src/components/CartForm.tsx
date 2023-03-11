@@ -116,7 +116,7 @@ export default function CartForm({ items, total }: Props) {
         type="submit"
         className="bg-neutral-900 p-2 font-dosis font-semibold text-white"
       >
-        Pedir por WS
+        Pedir por Whatsapp
       </button>
     </form>
   );
