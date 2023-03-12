@@ -56,17 +56,27 @@ const api = {
   },
   items: {
     fetch: async (url: string) => {
-      const res = await fetch(url);
-      const data = await res.text();
-      const parsed = await new Promise<SheetItem[]>((resolve, reject) => {
-        Papa.parse<SheetItem>(data, {
+      const itemsRes = await fetch(url);
+      const items = await itemsRes.text();
+      const itemsParsed = await new Promise<SheetItem[]>((resolve, reject) => {
+        Papa.parse<SheetItem>(items, {
           header: true,
           complete: (result) => resolve(result.data),
           error: reject,
         });
       });
 
-      return parsed;
+      const promosRes = await fetch(process.env.NEXT_PUBLIC_DOC_PROMOS_URL!);
+      const promos = await promosRes.text();
+      const promosParsed = await new Promise<SheetItem[]>((resolve, reject) => {
+        Papa.parse<SheetItem>(promos, {
+          header: true,
+          complete: (result) => resolve(result.data),
+          error: reject,
+        });
+      });
+
+      return { items: itemsParsed, promos: promosParsed };
     },
   },
   whatsapp: {

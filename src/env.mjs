@@ -17,6 +17,7 @@ const client = z.object({
   NEXT_PUBLIC_PHONE: z.string(),
   NEXT_PUBLIC_DOC_URL: z.string(),
   NEXT_PUBLIC_DOC_DELIVERY_URL: z.string(),
+  NEXT_PUBLIC_DOC_PROMOS_URL: z.string(),
 });
 /**
  * You can't destruct `process.env` as a regular object in the Next.js edge runtimes (e.g.
@@ -29,6 +30,7 @@ const processEnv = {
   NEXT_PUBLIC_PHONE: process.env.NEXT_PUBLIC_PHONE,
   NEXT_PUBLIC_DOC_URL: process.env.NEXT_PUBLIC_DOC_URL,
   NEXT_PUBLIC_DOC_DELIVERY_URL: process.env.NEXT_PUBLIC_DOC_DELIVERY_URL,
+  NEXT_PUBLIC_DOC_PROMOS_URL: process.env.NEXT_PUBLIC_DOC_PROMOS_URL,
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 };
 

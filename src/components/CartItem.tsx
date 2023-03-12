@@ -14,16 +14,20 @@ export default function CartItem({ item }: Props) {
   return (
     <div className="w-full sm:flex sm:items-center sm:justify-between">
       <div className="flex gap-4 sm:items-center sm:gap-10">
-        <div className="relative h-20 w-20 sm:h-40 sm:w-40">
-          <Image src={item.image} fill alt={item.name} />
-        </div>
-        <div className="grow">
+        {item.image && (
+          <div className="relative h-20 w-20 sm:h-40 sm:w-40">
+            <Image src={item.image} fill alt={item.name} />
+          </div>
+        )}
+        <div className={`grow ${item.image ? "" : "pl-[96px]"}`}>
           <p className="pb-2 font-dosis text-lg font-extrabold sm:text-xl">
             {item.name}
           </p>
-          <p className="font-regular sm:text-md font-lobster text-sm text-neutral-500">
-            Masa madre tradicional.
-          </p>
+          {item.image && (
+            <p className="font-regular sm:text-md font-lobster text-sm text-neutral-500">
+              Masa madre tradicional.
+            </p>
+          )}
         </div>
       </div>
       <div className="relative flex items-baseline gap-4 ">
@@ -33,7 +37,11 @@ export default function CartItem({ item }: Props) {
             {formatPrice(item.price * item.quantity)}
           </p>
         </div>
-        <div className="absolute bottom-36 left-[calc(100%_-_20px)] flex font-semibold sm:relative sm:bottom-0 sm:left-0 sm:h-12 sm:w-12 sm:justify-center">
+        <div
+          className={`absolute bottom-36 left-[calc(100%_-_20px)] flex font-semibold sm:relative sm:bottom-0 sm:left-0 sm:h-12 sm:w-12 sm:justify-center ${
+            item.image ? "bottom-36" : "bottom-24"
+          }`}
+        >
           <button onClick={() => removeItem(item.name)} type="button">
             xx
           </button>
