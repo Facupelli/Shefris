@@ -57,22 +57,24 @@ const Home: NextPage = () => {
             <ProductCard key={i} product={item} />
           ))}
         </section>
-        <section className="grid grid-cols-auto-fit justify-items-center gap-y-16 pt-24 ">
-          <div className="mx-[calc((100%_-_300px)/2)] justify-self-start font-dosis ">
+        <section>
+          <div className="mx-[calc((100%_-_300px)/2)]  justify-self-start pt-24 font-dosis ">
             <h1 className="text-4xl font-bold underline">PROMOS</h1>
           </div>
-          {promos?.map((promo, i) => (
-            <article
-              key={i}
-              className="grid w-card rounded-lg bg-neutral-100 p-6 font-dosis shadow sm:gap-2"
-            >
-              <p className="text-2xl font-bold">{promo.name}</p>
-              <p className="text-right font-lobster text-xl font-semibold">
-                {formatPrice(promo.price)}
-              </p>
-              <ProductButton addItem={() => addItem(promo)} product={promo} />
-            </article>
-          ))}
+          <div className="grid grid-cols-auto-fit justify-items-center gap-y-10 pt-10">
+            {promos?.map((promo, i) => (
+              <article
+                key={i}
+                className="grid w-card rounded-lg bg-neutral-100 p-6 font-dosis shadow sm:gap-2"
+              >
+                <p className="text-2xl font-bold">{promo.name}</p>
+                <p className="text-right font-lobster text-xl font-semibold">
+                  {formatPrice(promo.price)}
+                </p>
+                <ProductButton addItem={() => addItem(promo)} product={promo} />
+              </article>
+            ))}
+          </div>
         </section>
       </main>
     </>
