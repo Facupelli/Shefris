@@ -62,7 +62,10 @@ const Home: NextPage = () => {
             <h1 className="text-4xl font-bold underline">PROMOS</h1>
           </div>
           {promos?.map((promo, i) => (
-            <article className="grid w-card rounded-lg bg-neutral-100 p-6 font-dosis shadow sm:gap-2">
+            <article
+              key={i}
+              className="grid w-card rounded-lg bg-neutral-100 p-6 font-dosis shadow sm:gap-2"
+            >
               <p className="text-2xl font-bold">{promo.name}</p>
               <p className="text-right font-lobster text-xl font-semibold">
                 {formatPrice(promo.price)}
