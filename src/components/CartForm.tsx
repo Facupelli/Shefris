@@ -99,7 +99,7 @@ export default function CartForm({ items, total }: Props) {
         //     } ${formatPrice(location.price)}`}</option>
         //   ))}
         // </select>
-        <p className="text-center text-sm text-neutral-900 sm:text-left">
+        <p className="text-left text-sm text-neutral-900 sm:text-left">
           El costo de envío se calculará una vez enviada la ubicación.
         </p>
       )}

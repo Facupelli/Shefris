@@ -82,15 +82,14 @@ const api = {
   whatsapp: {
     sendOrderMessage: (data: OrderMessage) => {
       const items = data.items
-        .map(
-          (item) =>
-            "x " +
-            String(item.quantity) +
-            " " +
-            item.name +
-            "\n" +
-            "subtotal = " +
-            String(formatPrice(item.quantity * item.price))
+        .map((item) =>
+          "x " + String(item.quantity) + " " + item.image
+            ? item.name
+            : "PROMO " +
+              item.name +
+              "\n" +
+              "subtotal = " +
+              String(formatPrice(item.quantity * item.price))
         )
         .join("\n");
 
