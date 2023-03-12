@@ -104,13 +104,15 @@ export default function CartForm({ items, total }: Props) {
         </p>
       )}
 
-      <input
-        type="text"
-        placeholder="Dirección"
-        className="bg-neutral-300 p-2  text-neutral-700"
-        required
-        {...register("address")}
-      />
+      {shipment !== "pickup" && (
+        <input
+          type="text"
+          placeholder="Dirección"
+          className="bg-neutral-300 p-2  text-neutral-700"
+          required
+          {...register("address")}
+        />
+      )}
 
       <button
         type="submit"
