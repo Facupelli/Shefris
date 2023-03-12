@@ -12,36 +12,47 @@ export default function CartItem({ item }: Props) {
   const removeItem = useCartStore((state) => state.removeItem);
 
   return (
-    <div className="w-full sm:flex sm:items-center sm:justify-between">
-      <div className="flex gap-4 sm:items-center sm:gap-10">
+    <div className="w-full sm:flex sm:w-full sm:items-center sm:justify-between">
+      <div className="flex w-full gap-4 sm:items-center sm:gap-10">
         {item.image && (
           <div className="relative h-20 w-20 sm:h-40 sm:w-40">
             <Image src={item.image} fill alt={item.name} />
           </div>
         )}
-        <div className={`grow ${item.image ? "" : "pl-[96px]"}`}>
-          <p className="pb-2 font-dosis text-lg font-extrabold sm:text-xl">
-            {item.name}
-          </p>
-          {item.image && (
-            <p className="font-regular sm:text-md font-lobster text-sm text-neutral-500">
-              Masa madre tradicional.
-            </p>
-          )}
-        </div>
-      </div>
-      <div className="relative flex items-baseline gap-4 ">
-        <div className="ml-20 flex flex-col-reverse pl-4 sm:ml-0 sm:flex-row sm:items-center ">
-          <CartButton item={item} />
-          <p className="text-left font-lobster text-lg font-semibold sm:ml-4 sm:text-xl">
-            {formatPrice(item.price * item.quantity)}
-          </p>
-        </div>
         <div
-          className={`absolute bottom-36 left-[calc(100%_-_20px)] flex font-semibold sm:relative sm:bottom-0 sm:left-0 sm:h-12 sm:w-12 sm:justify-center ${
-            item.image ? "bottom-36" : "bottom-24"
+          className={` sm:flex sm:grow sm:items-center ${
+            item.image ? "sm:ml-0" : "py-4 sm:ml-[200px]"
           }`}
         >
+          <div
+            className={`${item.image ? "h-20 sm:h-auto" : "pl-[96px] sm:pl-0"}`}
+          >
+            <p
+              className={`${
+                item.image ? "pb-2" : "pb-0"
+              }  font-dosis text-lg font-extrabold  sm:text-xl`}
+            >
+              {item.name}
+            </p>
+            {item.image && (
+              <p className="font-regular sm:text-md font-lobster text-sm text-neutral-500">
+                Masa madre tradicional.
+              </p>
+            )}
+          </div>
+
+          <div
+            className={`flex flex-col-reverse gap-2 sm:ml-auto sm:flex-row sm:items-center ${
+              item.image ? "" : " ml-[96px]"
+            }`}
+          >
+            <CartButton item={item} />
+            <p className="text-left font-lobster text-lg font-semibold sm:ml-4 sm:text-xl">
+              {formatPrice(item.price * item.quantity)}
+            </p>
+          </div>
+        </div>
+        <div className={`ml-auto flex items-start font-semibold`}>
           <button onClick={() => removeItem(item.name)} type="button">
             xx
           </button>
