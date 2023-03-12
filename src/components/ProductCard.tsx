@@ -12,10 +12,16 @@ export default function ProductCard({ product }: Props) {
   const addItem = useCartStore((state) => state.addItem);
 
   return (
-    <article className="grid w-card sm:gap-2">
-      <div className="relative h-mobile-img w-mobile-img justify-self-center sm:h-desktop-img sm:w-desktop-img">
-        <Image src={product.image} fill alt={product.name} />
-      </div>
+    <article
+      className={`grid w-card sm:gap-2 ${
+        product.image ? "" : "rounded-lg bg-neutral-100 p-6 shadow"
+      }`}
+    >
+      {product.image && (
+        <div className="relative h-mobile-img w-mobile-img justify-self-center sm:h-desktop-img sm:w-desktop-img">
+          <Image src={product.image} fill alt={product.name} />
+        </div>
+      )}
       <p className="font-dosis text-3xl font-black">{product.name}</p>
       <p className="font-lobster text-lg text-gray-500">
         {product.description}

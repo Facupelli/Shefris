@@ -61,18 +61,9 @@ const Home: NextPage = () => {
           <div className="mx-[calc((100%_-_300px)/2)]  justify-self-start pt-24 font-dosis ">
             <h1 className="text-4xl font-bold underline">PROMOS</h1>
           </div>
-          <div className="grid grid-cols-auto-fit justify-items-center gap-y-10 pt-10">
+          <div className="grid grid-cols-auto-fit justify-items-center gap-y-6 pt-10">
             {promos?.map((promo, i) => (
-              <article
-                key={i}
-                className="grid w-card rounded-lg bg-neutral-100 p-6 font-dosis shadow sm:gap-2"
-              >
-                <p className="text-2xl font-bold">{promo.name}</p>
-                <p className="text-right font-lobster text-xl font-semibold">
-                  {formatPrice(promo.price)}
-                </p>
-                <ProductButton addItem={() => addItem(promo)} product={promo} />
-              </article>
+              <ProductCard key={i} product={promo} />
             ))}
           </div>
         </section>
