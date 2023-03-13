@@ -103,8 +103,8 @@ const api = {
           (item) =>
             "x " +
             String(item.quantity) +
-            (item.half ? "mitad de " : " ") +
-            (item.image ? item.name : "PROMO ") +
+            " " +
+            (item.image ? "" : "PROMO ") +
             item.name +
             "\n" +
             "subtotal = " +
