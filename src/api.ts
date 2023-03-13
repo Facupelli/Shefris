@@ -87,8 +87,7 @@ const api = {
           (item) =>
             "x " +
             String(item.quantity) +
-            (item.half ? "mitad de " : "") +
-            " " +
+            (item.half ? "mitad de " : " ") +
             (item.image ? item.name : "PROMO ") +
             item.name +
             "\n" +
