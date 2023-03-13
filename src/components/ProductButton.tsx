@@ -64,8 +64,8 @@ export default function ProductButton({ addItem, product }: Props) {
         </div>
       </div>
       {product.image && (
-        <div className="flex w-[calc(100%_-_96px)] items-center justify-center  py-2 font-dosis">
-          <button id="mitad" onClick={handleAddHalf}>
+        <div className="flex w-[calc(100%_-_96px)] items-center justify-center py-2 font-dosis sm:py-0">
+          <button id="mitad" onClick={handleAddHalf} className="font-medium">
             {isHalfAdded
               ? `1 mitad de ${product.name} agregada`
               : "agregar mitad"}
