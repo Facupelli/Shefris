@@ -6,9 +6,10 @@ import CartButton from "./CartButton";
 
 type Props = {
   item: Item;
+  number: number | null;
 };
 
-export default function CartItem({ item }: Props) {
+export default function CartItem({ item, number }: Props) {
   const removeItem = useCartStore((state) => state.removeItem);
 
   return (
@@ -16,7 +17,17 @@ export default function CartItem({ item }: Props) {
       <div className="flex w-full gap-4 sm:items-center sm:gap-10">
         {item.image && (
           <div className="relative h-20 w-20 sm:h-40 sm:w-40">
-            <Image src={item.image} fill alt={item.name} />
+            <Image
+              src={
+                item.half && number
+                  ? number % 2 === 0
+                    ? "/right-half.png"
+                    : "/left-half.png"
+                  : item.image
+              }
+              fill
+              alt={item.name}
+            />
           </div>
         )}
         <div
