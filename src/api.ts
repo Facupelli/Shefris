@@ -86,8 +86,8 @@ const api = {
         .map(
           (item) =>
             "x " +
-            (item.half ? "Mitad" : "") +
             String(item.quantity) +
+            (item.half ? "mitad de " : "") +
             " " +
             (item.image ? item.name : "PROMO ") +
             item.name +
