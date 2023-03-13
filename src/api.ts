@@ -67,6 +67,14 @@ const api = {
         });
       });
 
+      const newItems = itemsParsed.map((item) => ({
+        ...item,
+        quantity: 1,
+        half: false,
+        varieties: item.varieties.split(","),
+        varieties2: item.varieties2.split(","),
+      }));
+
       const promosRes = await fetch(process.env.NEXT_PUBLIC_DOC_PROMOS_URL!);
       const promos = await promosRes.text();
       const promosParsed = await new Promise<SheetItem[]>((resolve, reject) => {
@@ -77,7 +85,15 @@ const api = {
         });
       });
 
-      return { items: itemsParsed, promos: promosParsed };
+      const newPromos = promosParsed.map((item) => ({
+        ...item,
+        quantity: 1,
+        half: false,
+        varieties: item.varieties.split(","),
+        varieties2: item.varieties2.split(","),
+      }));
+
+      return { items: newItems, promos: newPromos };
     },
   },
   whatsapp: {

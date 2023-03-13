@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { GetServerSideProps, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import api from "~/api";
@@ -8,33 +8,38 @@ import Cart from "~/components/Cart";
 import NavBar from "~/components/NavBar";
 import ProductCard from "~/components/ProductCard";
 
-const Home: NextPage = () => {
-  const [items, setItems] = useState<Item[]>();
-  const [promos, setPromos] = useState<Item[]>();
+type Props = {
+  itemsList: Item[];
+  promosList: Item[];
+};
 
-  useEffect(() => {
-    api.items
-      .fetch(process.env.NEXT_PUBLIC_DOC_URL!)
-      .then((res) => {
-        const newItems = res.items.map((item) => ({
-          ...item,
-          quantity: 1,
-          half: false,
-          varieties: item.varieties.split(","),
-          varieties2: item.varieties2.split(","),
-        }));
-        setItems(newItems);
-        const newPromos = res.promos.map((item) => ({
-          ...item,
-          quantity: 1,
-          half: false,
-          varieties: item.varieties.split(","),
-          varieties2: item.varieties2.split(","),
-        }));
-        setPromos(newPromos);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+const Home: NextPage<Props> = ({ itemsList, promosList }: Props) => {
+  const [items, setItems] = useState<Item[]>(itemsList);
+  const [promos, setPromos] = useState<Item[]>(promosList);
+
+  // useEffect(() => {
+  //   api.items
+  //     .fetch(process.env.NEXT_PUBLIC_DOC_URL!)
+  //     .then((res) => {
+  //       const newItems = res.items.map((item) => ({
+  //         ...item,
+  //         quantity: 1,
+  //         half: false,
+  //         varieties: item.varieties.split(","),
+  //         varieties2: item.varieties2.split(","),
+  //       }));
+  //       setItems(newItems);
+  //       const newPromos = res.promos.map((item) => ({
+  //         ...item,
+  //         quantity: 1,
+  //         half: false,
+  //         varieties: item.varieties.split(","),
+  //         varieties2: item.varieties2.split(","),
+  //       }));
+  //       setPromos(newPromos);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
 
   return (
     <>
@@ -70,3 +75,19 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  let result;
+  try {
+    result = await api.items.fetch(process.env.NEXT_PUBLIC_DOC_URL!);
+  } catch (err) {
+    console.log("fetch error:", err);
+  }
+
+  return {
+    props: {
+      itemsList: result?.items,
+      promosList: result?.promos,
+    },
+  };
+};
