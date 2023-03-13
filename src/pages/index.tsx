@@ -7,13 +7,10 @@ import type { Item } from "~/api";
 import Cart from "~/components/Cart";
 import NavBar from "~/components/NavBar";
 import ProductCard from "~/components/ProductCard";
-import { useCartStore } from "~/zustand/store";
 
 const Home: NextPage = () => {
   const [items, setItems] = useState<Item[]>();
   const [promos, setPromos] = useState<Item[]>();
-
-  const addItem = useCartStore((state) => state.addItem);
 
   useEffect(() => {
     api.items

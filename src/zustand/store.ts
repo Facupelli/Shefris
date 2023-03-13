@@ -54,11 +54,11 @@ export const useCartStore = create<CartState>()(
         set((state) => {
           const index = state.items.findIndex((i) => i.name === name);
 
-          if (state.items[index] && state.items[index]?.quantity! > 1) {
-            state.items[index]!.quantity = 1;
-          }
-
           if (index !== -1 && state.items[index]) {
+            if (state.items[index] && state.items[index]!.quantity > 1) {
+              state.items[index]!.quantity = 1;
+            }
+
             state.items[index]!.half = !state.items[index]!.half;
           }
 
