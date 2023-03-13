@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useForm } from "react-hook-form";
 import type { Item } from "~/api";
 import { formatPrice } from "~/utils/price";
 import { useCartStore } from "~/zustand/store";
@@ -9,6 +10,7 @@ type Props = {
 };
 
 export default function ProductCard({ product }: Props) {
+  const { register, watch } = useForm<{ mitad: boolean }>();
   const addItem = useCartStore((state) => state.addItem);
 
   return (

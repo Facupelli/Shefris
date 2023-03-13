@@ -23,6 +23,7 @@ export type Item = {
   price: number;
   image: string;
   quantity: number;
+  half: boolean;
   category: string;
   varieties: string[];
   varieties2: string[];
@@ -85,6 +86,7 @@ const api = {
         .map(
           (item) =>
             "x " +
+            (item.half ? "Mitad" : "") +
             String(item.quantity) +
             " " +
             (item.image ? item.name : "PROMO ") +

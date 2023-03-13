@@ -17,12 +17,18 @@ export default function CartButton({ item }: Props) {
       >
         -
       </button>
-      <button
-        onClick={() => increaseQuantity(item)}
-        className=" w-12 bg-neutral-200 p-2 text-center"
-      >
-        +
-      </button>
+      {!item.half && (
+        <button
+          onClick={() => {
+            if (!item.half) {
+              increaseQuantity(item);
+            }
+          }}
+          className=" w-12 bg-neutral-200 p-2 text-center"
+        >
+          +
+        </button>
+      )}
       <button className="w-12 cursor-auto bg-neutral-300 p-2 text-center font-dosis font-semibold">
         {item.quantity}
       </button>

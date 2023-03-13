@@ -7,8 +7,6 @@ import type { Item } from "~/api";
 import Cart from "~/components/Cart";
 import NavBar from "~/components/NavBar";
 import ProductCard from "~/components/ProductCard";
-import { formatPrice } from "~/utils/price";
-import ProductButton from "~/components/ProductButton";
 import { useCartStore } from "~/zustand/store";
 
 const Home: NextPage = () => {
@@ -24,6 +22,7 @@ const Home: NextPage = () => {
         const newItems = res.items.map((item) => ({
           ...item,
           quantity: 1,
+          half: false,
           varieties: item.varieties.split(","),
           varieties2: item.varieties2.split(","),
         }));
@@ -31,6 +30,7 @@ const Home: NextPage = () => {
         const newPromos = res.promos.map((item) => ({
           ...item,
           quantity: 1,
+          half: false,
           varieties: item.varieties.split(","),
           varieties2: item.varieties2.split(","),
         }));

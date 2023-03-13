@@ -24,6 +24,10 @@ export default function CartForm({ items, total }: Props) {
     []
   );
 
+  const [error, setError] = useState("");
+
+  console.log(error);
+
   const shipment: string = watch("shipment");
 
   useEffect(() => {
@@ -34,14 +38,26 @@ export default function CartForm({ items, total }: Props) {
   }, []);
 
   const onSubmit = (data: FormData) => {
+    setError("");
     const messageOrder = {
       ...data,
       items,
       total,
     };
 
+    const halfsCount = items.reduce((acc, curr) => {
+      if (curr.half) {
+        return acc + 1;
+      }
+      return acc;
+    }, 0);
+
+    if (halfsCount % 2 !== 0) {
+      return setError("Debes pedir una mitad de pizza más!");
+    }
+
     const link = api.whatsapp.sendOrderMessage(messageOrder);
-    window.location.href = link;
+    return (window.location.href = link);
   };
 
   return (
@@ -120,6 +136,12 @@ export default function CartForm({ items, total }: Props) {
       >
         Pedir por Whatsapp
       </button>
+
+      {error && (
+        <p className="text-center text-sm font-semibold text-red-500">
+          {error}
+        </p>
+      )}
     </form>
   );
 }
