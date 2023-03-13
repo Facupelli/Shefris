@@ -10,15 +10,21 @@ export default function ProductButton({ addItem, product }: Props) {
   const cartItems = useCartStore((state) => state.items);
   const increaseQuantity = useCartStore((state) => state.increaseQuantity);
   const decreaseQuantity = useCartStore((state) => state.decreaseQuantity);
-  const makeHalf = useCartStore((state) => state.makeHalf);
 
   const isItemAdded = cartItems.find((item) => item.name === product.name);
+  const isHalfAdded = cartItems.find(
+    (item) => item.name === `mitad de ${product.name}`
+  );
 
-  const handleMakeHalf = () => {
-    if (!isItemAdded && !product.half) {
-      increaseQuantity(product);
+  const handleAddHalf = () => {
+    if (!isHalfAdded) {
+      const halfPizza = {
+        ...product,
+        half: true,
+        name: `mitad de ${product.name}`,
+      };
+      increaseQuantity(halfPizza);
     }
-    makeHalf(product.name);
   };
 
   return (
@@ -59,20 +65,11 @@ export default function ProductButton({ addItem, product }: Props) {
       </div>
       {product.image && (
         <div className="flex w-[calc(100%_-_96px)] items-center justify-center  py-2 font-dosis">
-          <label
-            htmlFor="mitad"
-            className={`font-medium underline ${
-              product.half ? "text-red-700" : ""
-            }`}
-            onClick={handleMakeHalf}
-          >
-            {isItemAdded
-              ? product.half
-                ? `mitad agregada de ${product.name}`
-                : "hacer mitad"
+          <button id="mitad" onClick={handleAddHalf}>
+            {isHalfAdded
+              ? `1 mitad de ${product.name} agregada`
               : "agregar mitad"}
-          </label>
-          <input id="mitad" className="hidden" type="checkbox" />
+          </button>
         </div>
       )}
     </>

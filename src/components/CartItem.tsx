@@ -32,7 +32,7 @@ export default function CartItem({ item }: Props) {
                 item.image ? "pb-2" : "pb-0"
               }  font-dosis text-lg font-extrabold  sm:text-xl`}
             >
-              {item.half ? `mitad ${item.name}` : item.name}
+              {item.name}
             </p>
             {item.image && (
               <p className="font-regular sm:text-md font-lobster text-sm text-neutral-500">
