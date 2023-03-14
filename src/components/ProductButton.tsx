@@ -86,7 +86,6 @@ export default function ProductButton({
       {product.image && (
         <div className="flex w-[calc(100%_-_96px)] items-center justify-center py-2 font-dosis sm:py-0">
           <button
-            id="mitad"
             onClick={() => {
               setHalfAdded && setHalfAdded(product.name);
               handleAddHalf();
