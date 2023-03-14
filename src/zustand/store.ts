@@ -7,6 +7,7 @@ interface CartState {
   addItem: (item: Item) => void;
   increaseQuantity: (item: Item) => void;
   decreaseQuantity: (name: string) => void;
+  addHalf: (name: string, newHalf: string, price: number) => void;
   removeItem: (name: string) => void;
   emptyCart: () => void;
   showCart: boolean;
@@ -45,6 +46,20 @@ export const useCartStore = create<CartState>()(
             } else {
               state.items[index]!.quantity -= 1;
               return { items: [...state.items] };
+            }
+          }
+          return { items: [...state.items] };
+        }),
+      addHalf: (name, newHalf, price) =>
+        set((state) => {
+          const index = state.items.findIndex((i) => i.name === name);
+          if (index !== -1) {
+            state.items[index]!.name = `${
+              state.items[index]!.name
+            } y mitad de ${newHalf}`;
+
+            if (state.items[index]!.price < price) {
+              state.items[index]!.price = price;
             }
           }
           return { items: [...state.items] };

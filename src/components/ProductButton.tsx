@@ -1,15 +1,25 @@
+import { Dispatch, SetStateAction, useState } from "react";
 import type { Item } from "~/api";
 import { useCartStore } from "~/zustand/store";
 
 type Props = {
   addItem: () => void;
   product: Item;
+  setShowHalfModal?: Dispatch<SetStateAction<boolean>>;
+  setHalfAdded?: Dispatch<SetStateAction<string>>;
 };
 
-export default function ProductButton({ addItem, product }: Props) {
+export default function ProductButton({
+  addItem,
+  product,
+  setShowHalfModal,
+  setHalfAdded,
+}: Props) {
   const cartItems = useCartStore((state) => state.items);
   const increaseQuantity = useCartStore((state) => state.increaseQuantity);
   const decreaseQuantity = useCartStore((state) => state.decreaseQuantity);
+
+  console.log(cartItems);
 
   const isItemAdded = cartItems.find((item) => item.name === product.name);
   const isHalfAdded = cartItems.find(
@@ -20,7 +30,6 @@ export default function ProductButton({ addItem, product }: Props) {
     if (!isHalfAdded) {
       const halfPizza = {
         ...product,
-        half: true,
         name: `mitad de ${product.name}`,
       };
       increaseQuantity(halfPizza);
@@ -65,10 +74,16 @@ export default function ProductButton({ addItem, product }: Props) {
       </div>
       {product.image && (
         <div className="flex w-[calc(100%_-_96px)] items-center justify-center py-2 font-dosis sm:py-0">
-          <button id="mitad" onClick={handleAddHalf} className="font-medium">
-            {isHalfAdded
-              ? `1 mitad de ${product.name} agregada`
-              : "agregar mitad"}
+          <button
+            id="mitad"
+            onClick={() => {
+              setHalfAdded && setHalfAdded(product.name);
+              handleAddHalf();
+              setShowHalfModal && setShowHalfModal(true);
+            }}
+            className="font-medium"
+          >
+            agregar mitad
           </button>
         </div>
       )}

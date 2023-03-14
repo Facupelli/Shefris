@@ -1,45 +1,34 @@
-import type { GetServerSideProps, GetStaticProps, NextPage } from "next";
+import { type GetServerSideProps, type NextPage } from "next";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import api from "~/api";
 import type { Item } from "~/api";
 
 import Cart from "~/components/Cart";
 import NavBar from "~/components/NavBar";
 import ProductCard from "~/components/ProductCard";
+import Modal from "~/components/Modal";
+import { useForm } from "react-hook-form";
+import { useCartStore } from "~/zustand/store";
+import ChooseHalf from "~/components/ChooseHalf";
 
 type Props = {
   itemsList: Item[];
   promosList: Item[];
 };
 
-const Home: NextPage<Props> = ({ itemsList, promosList }: Props) => {
-  const [items, setItems] = useState<Item[]>(itemsList);
-  const [promos, setPromos] = useState<Item[]>(promosList);
+type FormData = {
+  pizza: "string";
+};
 
-  // useEffect(() => {
-  //   api.items
-  //     .fetch(process.env.NEXT_PUBLIC_DOC_URL!)
-  //     .then((res) => {
-  //       const newItems = res.items.map((item) => ({
-  //         ...item,
-  //         quantity: 1,
-  //         half: false,
-  //         varieties: item.varieties.split(","),
-  //         varieties2: item.varieties2.split(","),
-  //       }));
-  //       setItems(newItems);
-  //       const newPromos = res.promos.map((item) => ({
-  //         ...item,
-  //         quantity: 1,
-  //         half: false,
-  //         varieties: item.varieties.split(","),
-  //         varieties2: item.varieties2.split(","),
-  //       }));
-  //       setPromos(newPromos);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, []);
+const Home: NextPage<Props> = ({ itemsList, promosList }: Props) => {
+  const [items] = useState<Item[]>(itemsList);
+  const [promos] = useState<Item[]>(promosList);
+
+  const decreaseQuantity = useCartStore((state) => state.decreaseQuantity);
+
+  const [showHalfModal, setShowHalfModal] = useState(false);
+  const [halfAdded, setHalfAdded] = useState("");
 
   return (
     <>
@@ -49,6 +38,23 @@ const Home: NextPage<Props> = ({ itemsList, promosList }: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      {showHalfModal && (
+        <Modal
+          isOpen={showHalfModal}
+          handleClose={() => {
+            setShowHalfModal(false);
+            decreaseQuantity(`mitad de ${halfAdded}`);
+            setHalfAdded("");
+          }}
+        >
+          <ChooseHalf
+            items={items}
+            setShowHalfModal={setShowHalfModal}
+            halfAdded={halfAdded}
+          />
+        </Modal>
+      )}
+
       <NavBar slug="shefris" />
 
       <Cart />
@@ -56,7 +62,12 @@ const Home: NextPage<Props> = ({ itemsList, promosList }: Props) => {
       <main className="bg-white pt-[calc(70px_+_40px)] pb-10">
         <section className="grid grid-cols-auto-fit justify-items-center gap-y-16 ">
           {items?.map((item, i) => (
-            <ProductCard key={i} product={item} />
+            <ProductCard
+              key={i}
+              product={item}
+              setShowHalfModal={setShowHalfModal}
+              setHalfAdded={setHalfAdded}
+            />
           ))}
         </section>
         <section>
