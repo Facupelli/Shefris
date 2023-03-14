@@ -16,7 +16,7 @@ export default function CartItem({ item, number }: Props) {
     <div className="w-full sm:flex sm:w-full sm:items-center sm:justify-between">
       <div className="flex w-full gap-4 sm:items-center sm:gap-10">
         {item.image && (
-          <div className="relative h-20 w-20 sm:h-40 sm:w-40">
+          <div className="relative aspect-square h-20 w-20 sm:h-40 sm:w-40">
             <Image
               src={
                 item.half && number
@@ -41,7 +41,7 @@ export default function CartItem({ item, number }: Props) {
             <p
               className={`${
                 item.image ? "pb-2" : "pb-0"
-              }  font-dosis text-lg font-extrabold  sm:text-xl`}
+              } font-dosis text-lg font-extrabold sm:text-xl`}
             >
               {item.name}
             </p>

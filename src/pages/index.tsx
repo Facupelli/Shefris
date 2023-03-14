@@ -43,7 +43,7 @@ const Home: NextPage<Props> = ({ itemsList, promosList }: Props) => {
           isOpen={showHalfModal}
           handleClose={() => {
             setShowHalfModal(false);
-            decreaseQuantity(`mitad de ${halfAdded}`);
+            decreaseQuantity(`mitad ${halfAdded}`);
             setHalfAdded("");
           }}
         >

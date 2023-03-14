@@ -26,14 +26,14 @@ export default function ChooseHalf({
 
   const handleAddHalf = () => {
     const newHalfPrice = items?.find((item) => item.name === half)?.price;
-    addHalf(`mitad de ${halfAdded}`, half, newHalfPrice ?? 0);
+    addHalf(`mitad ${halfAdded}`, half, newHalfPrice ?? 0);
     reset();
     setShowHalfModal(false);
   };
 
   return (
     <>
-      <h1 className="pb-2 pt-2 text-xl font-bold underline sm:pb-6">
+      <h1 className="py-2 pl-2 text-xl font-bold sm:pb-6 sm:text-2xl">
         Elige la otra mitad:
       </h1>
       <div className="grid w-[290px] gap-y-1 sm:w-[500px] ">
@@ -43,7 +43,7 @@ export default function ChooseHalf({
             .map((item) => (
               <label
                 key={item.name}
-                className={`flex w-full cursor-pointer items-center gap-2 rounded p-2 font-semibold ${
+                className={`flex w-full cursor-pointer items-center gap-2 rounded p-2 font-semibold sm:text-lg ${
                   half === item.name ? "bg-rose-600 text-white" : "bg-white"
                 }`}
                 htmlFor={item.name}

@@ -56,7 +56,7 @@ export const useCartStore = create<CartState>()(
           if (index !== -1) {
             state.items[index]!.name = `${
               state.items[index]!.name
-            } y mitad de ${newHalf}`;
+            } y mitad ${newHalf}`;
 
             if (state.items[index]!.price < price) {
               state.items[index]!.price = price;

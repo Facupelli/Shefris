@@ -19,18 +19,16 @@ export default function ProductButton({
   const increaseQuantity = useCartStore((state) => state.increaseQuantity);
   const decreaseQuantity = useCartStore((state) => state.decreaseQuantity);
 
-  console.log(cartItems);
-
   const isItemAdded = cartItems.find((item) => item.name === product.name);
   const isHalfAdded = cartItems.find(
-    (item) => item.name === `mitad de ${product.name}`
+    (item) => item.name === `mitad ${product.name}`
   );
 
   const handleAddHalf = () => {
     if (!isHalfAdded) {
       const halfPizza = {
         ...product,
-        name: `mitad de ${product.name}`,
+        name: `mitad ${product.name}`,
       };
       increaseQuantity(halfPizza);
     }
