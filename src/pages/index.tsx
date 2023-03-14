@@ -1,4 +1,4 @@
-import { type GetServerSideProps, type NextPage } from "next";
+import { type GetStaticProps, type NextPage } from "next";
 import Head from "next/head";
 import { useState } from "react";
 import api from "~/api";
@@ -83,7 +83,7 @@ const Home: NextPage<Props> = ({ itemsList, promosList }: Props) => {
 
 export default Home;
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   let result;
   try {
     result = await api.items.fetch(process.env.NEXT_PUBLIC_DOC_URL!);

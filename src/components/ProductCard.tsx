@@ -28,7 +28,15 @@ export default function ProductCard({
       >
         {product.image && (
           <div className="relative h-mobile-img w-mobile-img justify-self-center sm:h-desktop-img sm:w-desktop-img">
-            <Image src={product.image} fill alt={product.name} priority />
+            <Image
+              src={product.image}
+              fill
+              alt={product.name}
+              priority
+              sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
+            />
           </div>
         )}
         <p className="font-dosis text-3xl font-black">{product.name}</p>
