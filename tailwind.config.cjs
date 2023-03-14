@@ -4,7 +4,6 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        playfair: ["Playfair Display SC", "serif"],
         lobster: ["Lobster Two", "cursive"],
         dosis: ["Dosis", "sans-serif"],
       },

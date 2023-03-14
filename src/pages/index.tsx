@@ -31,6 +31,7 @@ const Home: NextPage<Props> = ({ itemsList, promosList }: Props) => {
         <title>Shefris | Pizza Napoletana</title>
         <meta name="description" content="Shefris Napoletano" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://www.googletagmanager.com/gtag/" />
       </Head>
 
       {showHalfModal && (
