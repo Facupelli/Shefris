@@ -12,6 +12,8 @@ interface CartState {
   emptyCart: () => void;
   showCart: boolean;
   toggleCart: () => void;
+  shake: boolean;
+  toggleShake: () => void;
 }
 
 export const useCartStore = create<CartState>()(
@@ -72,6 +74,10 @@ export const useCartStore = create<CartState>()(
       showCart: false,
       toggleCart: () => {
         set({ showCart: !get().showCart });
+      },
+      shake: false,
+      toggleShake: () => {
+        set({ shake: !get().shake });
       },
     }),
     {

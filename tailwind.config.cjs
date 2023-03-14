@@ -27,6 +27,14 @@ const config = {
       gridTemplateColumns: {
         "auto-fit": "repeat( auto-fit, minmax(300px, 1fr) )",
       },
+      keyframes: {
+        shake: {
+          "0%": { transform: "rotateZ(20deg)" },
+          "25%": { transform: "rotateZ(-20deg)" },
+          "50%": { transform: "rotateZ(15deg)" },
+          "75%": { transform: "rotateZ(-15deg)" },
+        },
+      },
     },
   },
   plugins: [],

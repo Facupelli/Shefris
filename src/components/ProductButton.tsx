@@ -18,6 +18,7 @@ export default function ProductButton({
   const cartItems = useCartStore((state) => state.items);
   const increaseQuantity = useCartStore((state) => state.increaseQuantity);
   const decreaseQuantity = useCartStore((state) => state.decreaseQuantity);
+  const toggleShake = useCartStore((state) => state.toggleShake);
 
   const isItemAdded = cartItems.find((item) => item.name === product.name);
   const isHalfAdded = cartItems.find(
@@ -41,7 +42,13 @@ export default function ProductButton({
           className={`grow font-dosis tracking-wider hover:bg-neutral-800 ${
             !!isItemAdded ? "bg-rose-600 hover:bg-rose-600" : ""
           }`}
-          onClick={addItem}
+          onClick={() => {
+            addItem();
+            toggleShake();
+            setTimeout(() => {
+              toggleShake();
+            }, 1000);
+          }}
           disabled={!!isItemAdded}
         >
           {!!isItemAdded ? "Agregado" : "Agregar"}
@@ -55,6 +62,12 @@ export default function ProductButton({
               className="hover:bg-neutral-800"
               onClick={() => {
                 if (!product.half) {
+                  if (!cartItems.find((item) => item.name === product.name)) {
+                    toggleShake();
+                    setTimeout(() => {
+                      toggleShake();
+                    }, 1000);
+                  }
                   increaseQuantity(product);
                 }
               }}
