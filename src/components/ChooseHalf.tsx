@@ -67,7 +67,7 @@ export default function ChooseHalf({
         <button
           onClick={handleAddHalf}
           type="button"
-          className="w-full rounded bg-neutral-900 py-1 px-4 font-medium text-white sm:w-auto"
+          className="w-full rounded bg-neutral-900 py-2 px-4 font-medium text-white sm:w-auto"
         >
           Agregar
         </button>
