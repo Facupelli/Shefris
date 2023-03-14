@@ -1,12 +1,9 @@
 import Image from "next/image";
-import { Dispatch, SetStateAction, useState } from "react";
-import { useForm } from "react-hook-form";
-import type { Item } from "~/api";
+import { type Dispatch, type SetStateAction } from "react";
+import { type Item } from "~/api";
 import { useCartStore } from "~/zustand/store";
 import { formatPrice } from "~/utils/price";
 
-import ChooseHalf from "./ChooseHalf";
-import Modal from "./Modal";
 import ProductButton from "./ProductButton";
 
 type Props = {

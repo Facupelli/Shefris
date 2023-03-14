@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { Dispatch, SetStateAction } from "react";
-import { useForm, UseFormRegister } from "react-hook-form";
-import { Item } from "~/api";
+import { type Dispatch, type SetStateAction } from "react";
+import { useForm } from "react-hook-form";
+import { type Item } from "~/api";
 import { useCartStore } from "~/zustand/store";
 
 type FormData = {

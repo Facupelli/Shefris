@@ -2,23 +2,18 @@ import { type GetServerSideProps, type NextPage } from "next";
 import Head from "next/head";
 import { useState } from "react";
 import api from "~/api";
-import type { Item } from "~/api";
+import { type Item } from "~/api";
+import { useCartStore } from "~/zustand/store";
 
 import Cart from "~/components/Cart";
 import NavBar from "~/components/NavBar";
 import ProductCard from "~/components/ProductCard";
 import Modal from "~/components/Modal";
-import { useForm } from "react-hook-form";
-import { useCartStore } from "~/zustand/store";
 import ChooseHalf from "~/components/ChooseHalf";
 
 type Props = {
   itemsList: Item[];
   promosList: Item[];
-};
-
-type FormData = {
-  pizza: "string";
 };
 
 const Home: NextPage<Props> = ({ itemsList, promosList }: Props) => {

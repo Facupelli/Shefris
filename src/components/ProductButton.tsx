@@ -1,5 +1,5 @@
-import { Dispatch, SetStateAction, useState } from "react";
-import type { Item } from "~/api";
+import { type Dispatch, type SetStateAction } from "react";
+import { type Item } from "~/api";
 import { useCartStore } from "~/zustand/store";
 
 type Props = {

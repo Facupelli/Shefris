@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-import type { DeliveryPrice, Item } from "~/api";
+import { type Item } from "~/api";
 import api from "~/api";
 // import { formatPrice } from "~/utils/price";
 
@@ -19,23 +19,9 @@ type Props = {
 
 export default function CartForm({ items, total }: Props) {
   const { register, handleSubmit, watch } = useForm<FormData>();
-
-  const [deliveryLocations, setDeliveryLocations] = useState<DeliveryPrice[]>(
-    []
-  );
+  const shipment = watch("shipment");
 
   const [error, setError] = useState("");
-
-  console.log(error);
-
-  const shipment: string = watch("shipment");
-
-  useEffect(() => {
-    api.delivery
-      .fetch()
-      .then((deliveries) => setDeliveryLocations(deliveries))
-      .catch((err) => console.log(err));
-  }, []);
 
   const onSubmit = (data: FormData) => {
     setError("");
@@ -103,18 +89,7 @@ export default function CartForm({ items, total }: Props) {
         </div>
       </div>
 
-      {shipment === "delivery" && deliveryLocations.length > 0 && (
-        // <select
-        //   className="bg-neutral-300 p-2 font-medium"
-        //   {...register("location")}
-        // >
-        //   <option disabled>seleccionar localidad</option>
-        //   {deliveryLocations.map((location, i) => (
-        //     <option key={i} value={`${location.name} ${location.price}`}>{`${
-        //       location.name
-        //     } ${formatPrice(location.price)}`}</option>
-        //   ))}
-        // </select>
+      {shipment === "delivery" && (
         <p className="text-left text-sm text-neutral-900 sm:text-left">
           El costo de envío se calculará una vez enviada la ubicación.
         </p>
