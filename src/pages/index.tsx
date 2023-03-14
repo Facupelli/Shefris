@@ -55,7 +55,7 @@ const Home: NextPage<Props> = ({ itemsList, promosList }: Props) => {
 
       <Cart />
 
-      <main className="bg-white pt-[calc(70px_+_40px)] pb-10">
+      <main className="mx-auto max-w-7xl bg-white pt-[calc(70px_+_40px)] pb-10">
         <section className="grid grid-cols-auto-fit justify-items-center gap-y-16 ">
           {items?.map((item, i) => (
             <ProductCard
