@@ -29,10 +29,10 @@ const config = {
       },
       keyframes: {
         shake: {
-          "0%": { transform: "rotateZ(20deg)" },
-          "25%": { transform: "rotateZ(-20deg)" },
-          "50%": { transform: "rotateZ(15deg)" },
-          "75%": { transform: "rotateZ(-15deg)" },
+          "0%": { transform: "rotateZ(20deg) scale(1.1)" },
+          "25%": { transform: "rotateZ(-20deg) scale(1.2)" },
+          "50%": { transform: "rotateZ(15deg) scale(1.1)" },
+          "75%": { transform: "rotateZ(-15deg) scale(1)" },
         },
       },
     },
