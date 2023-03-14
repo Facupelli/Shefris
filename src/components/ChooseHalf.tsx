@@ -33,7 +33,7 @@ export default function ChooseHalf({
 
   return (
     <>
-      <h1 className="pb-2 pt-2 text-xl font-bold sm:pb-6 ">
+      <h1 className="pb-2 pt-2 text-xl font-bold underline sm:pb-6">
         Elige la otra mitad:
       </h1>
       <div className="grid w-[290px] gap-y-1 sm:w-[500px] ">

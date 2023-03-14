@@ -71,7 +71,7 @@ const Home: NextPage<Props> = ({ itemsList, promosList }: Props) => {
           ))}
         </section>
         <section>
-          <div className="mx-[calc((100%_-_300px)/2)]  justify-self-start pt-24 font-dosis ">
+          <div className="mx-[calc((100%_-_300px)/2)] flex justify-start pt-24 font-dosis sm:mx-10">
             <h1 className="text-4xl font-bold underline">PROMOS</h1>
           </div>
           <div className="grid grid-cols-auto-fit justify-items-center gap-y-6 pt-10">
